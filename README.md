@@ -1,10 +1,16 @@
 # Ultima Online Paperdoll Drawer
 
+A PHP library to draw Ultima Online characters' paperdoll images.
 
 ## Requirements
 
 * PHP >= 7.1
 * GD extension
+* These Ultima Online client files (you need to provide them from your UO installation):
+   * `gumpidx.mul`
+   * `gumpart.mul`
+   * `tiledata.mul`
+   * `hues.mul`
 
 ## Installation
 
@@ -16,7 +22,29 @@ $ composer require ppardalj/ultima-paperdoll-drawer-php
 
 ## Usage
 
-*TODO*
+Use the class `PaperdollBuilder` to customize the paperdoll of your character. You can use a fluent interface to change the name, title, skin hue, race, gender, and add items.
+
+Finally, get an instance of the `PaperdollDrawer` class configured with your Ultima Online client files, and use it to draw the paperdoll you just built.
+
+You will get an image `resource` which you can use the way you want.
+
+```php
+$drawer = PaperdollDrawer::with('/path/to/uofiles');
+
+$paperdoll = PaperdollBuilder::create('Lord Semerkhet')
+    ->withTitle('Legendary Developer')
+    ->withItem(new Item(9860, 1109, Layer::NECK)) // Hooded shroud of shadows
+    ->build();
+
+$paperdollImage = $drawer->drawPaperdoll($paperdoll);
+imagepng($paperdollImage, 'mypaperdoll.png'); // save to png file
+```
+
+You can find more examples in the `example/` directory.
+
+## Contributing
+
+Please feel free to report any bug you find, or submit a pull request with new features, bug fixes, etc.
 
 ## License
 
