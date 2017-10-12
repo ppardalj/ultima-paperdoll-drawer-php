@@ -24,7 +24,13 @@ $ composer require ppardalj/ultima-paperdoll-drawer-php
 
 ## Usage
 
-Use the class `PaperdollBuilder` to customize the paperdoll of your character. You can use a fluent interface to change the name, title, skin hue, race, gender, and add items.
+### Ultima Online client files
+
+You need to provide your Ultima Online client MUL files and place them into the [uofiles](./uofiles/) directory. If you're using a newer Ultima Online installation and your client files are UOP format, you'll need to use a tool (such as LegacyMulConverter) to convert your files to MUL format.
+
+### Code
+
+Once your MUL files are placed, in your PHP script use the class `PaperdollBuilder` to customize the paperdoll of your character. You can use a fluent interface to change the name, title, skin hue, race, gender, and add items.
 
 Finally, get an instance of the `PaperdollDrawer` class configured with your Ultima Online client files, and use it to draw the paperdoll you just built.
 
@@ -42,7 +48,7 @@ $paperdollImage = $drawer->drawPaperdoll($paperdoll);
 imagepng($paperdollImage, 'mypaperdoll.png'); // save to png file
 ```
 
-You can find more examples in the `example/` directory.
+You can find more examples in the [examples](./example/) directory.
 
 ## Contributing
 
