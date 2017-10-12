@@ -56,7 +56,11 @@ class PaperdollDrawer
      */
     public function drawPaperdoll(Paperdoll $paperdoll)
     {
-        $canvas = imagecreatefrompng('images/paperdoll.png') or die('couldnt create image');
+        $canvas = imagecreatefrompng(__DIR__ . '/../../resource/paperdoll.png');
+        if (!$canvas) {
+            throw new \RuntimeException('could not create paperdoll image');
+        }
+
         imagealphablending($canvas, true);
 
         $this->addEntry($canvas, $paperdoll->getBodyEntry());
