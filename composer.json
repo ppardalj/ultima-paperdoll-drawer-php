@@ -1,8 +1,9 @@
 {
   "name": "ppardalj/ultima-paperdoll-drawer-php",
   "type": "library",
-  "license": "proprietary",
   "description": "Library to generate paperdoll images for Ultima Online characters",
+  "keywords": ["ultima online", "ultima", "paperdoll"],
+  "license": "GPL-3.0+",
   "require": {
     "php": "^7.1.3"
   },
