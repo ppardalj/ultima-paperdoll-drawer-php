@@ -2,6 +2,8 @@
 
 A PHP library to draw Ultima Online characters' paperdoll images.
 
+![](./art/sample-paperdoll.png)
+
 ## Requirements
 
 * PHP >= 7.1
